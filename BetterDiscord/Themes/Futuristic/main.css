@@ -1,0 +1,169 @@
+/*
+██████╗  █████╗ ███████╗███████╗
+██╔══██╗██╔══██╗██╔════╝██╔════╝
+██████╔╝███████║███████╗█████╗  
+██╔══██╗██╔══██║╚════██║██╔══╝  
+██████╔╝██║  ██║███████║███████╗
+╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝
+*/
+.base-3dtUhz { border-radius:0!important;}
+.base-3dtUhz::before {
+	position:absolute; left:72px; top:22px; content:'';
+	border-right: 12px solid transparent;
+	border-top: 12px solid var(--three);
+	z-index:1;
+}
+
+
+
+
+
+
+
+/*
+ ██████╗██╗  ██╗ █████╗ ███╗   ██╗███╗   ██╗███████╗██╗     
+██╔════╝██║  ██║██╔══██╗████╗  ██║████╗  ██║██╔════╝██║     
+██║     ███████║███████║██╔██╗ ██║██╔██╗ ██║█████╗  ██║     
+██║     ██╔══██║██╔══██║██║╚██╗██║██║╚██╗██║██╔══╝  ██║     
+╚██████╗██║  ██║██║  ██║██║ ╚████║██║ ╚████║███████╗███████╗
+ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═══╝╚══════╝╚══════╝
+ */
+.flexChild-faoVW3 { background-color: var(--one);}
+.channels-Ie2l6A { width:240px;}
+.container-PNkimc { background-color:var(--two);}
+.wrapper-CU3qI5 { top:-8px;}
+.containerDefault-3GGEv_ > div { z-index:1;}
+.containStyles-2a-Dzo {
+	width:250px;
+	overflow-y: hidden;
+}
+.containerDefault-3GGEv_ {
+	width: 240px;
+	height:24px;
+	background-color: var(--one);
+}
+
+/*top indent*/
+.containerDefault-3GGEv_:not(:nth-of-type(1))::before {
+	position:absolute; left:215px; top:-24px; content:'';
+	border-bottom: 24px solid var(--one);
+	border-right: 24px solid transparent;
+}
+.containerDefault-3GGEv_ + .containerDefault-1ZnADq + .containerDefault-3GGEv_::before, .scroller-2wx7Hm > :nth-child(2) + .containerDefault-1ZnADq + .containerDefault-3GGEv_::before {
+	position:absolute; left:215px; top:-35px; content:'';
+	background-color:var(--one);
+	border:0;
+	width:25px;
+	height:36px;
+}
+
+/*voice indent cover*/
+.list-2bwCXU > :first-child::before {
+	position:absolute; left:223px; bottom:-8px; content:'';
+	border-top: 24px solid var(--two);
+	border-left: 24px solid transparent;
+	z-index:1;
+}
+.list-2bwCXU > :first-child::after {
+	position:absolute; left:223px; bottom:16px; content:'';
+	background-color: var(--two);
+	border:0;
+	width:17px;
+	height:19px;
+	z-index:1;
+}
+
+/*bottom indent*/
+.containerDefault-3GGEv_::after {
+	position:absolute; left:215px; top:40px; content:'';
+	border-top: 24px solid var(--one);
+	border-right: 24px solid transparent;
+}
+
+/*channel size*/
+.containerDefault-1ZnADq::before {
+	position: absolute; top:-1px; left:0; content:'';
+	width: 223px !important;
+	height: 34px !important;
+	background-color: var(--one);
+	z-index:-1;
+}
+.containerDefault-1ZnADq {
+	width: calc(100% - 27px);
+	background-color: var(--one);
+}
+
+/*fill top/bottom*/
+.scroller-2wx7Hm > :nth-child(2):empty {
+	visibility: visible !important;
+	width: 223px !important;
+	background-color: var(--one);
+}
+.scroller-2wx7Hm > :nth-last-of-type(1) {
+	position:absolute; left:0; bottom:0; content:'';
+	background-color:var(--one);
+	width:calc(100% - 27px) !important;
+	height:calc(100% - 78px) !important;
+	visibility: visible !important;
+	z-index:-1;
+}
+
+
+
+
+
+
+/*
+ ██████╗ ██╗   ██╗██╗██╗     ██████╗ ███████╗
+██╔════╝ ██║   ██║██║██║     ██╔══██╗██╔════╝
+██║  ███╗██║   ██║██║██║     ██║  ██║███████╗
+██║   ██║██║   ██║██║██║     ██║  ██║╚════██║
+╚██████╔╝╚██████╔╝██║███████╗██████╔╝███████║
+ ╚═════╝  ╚═════╝ ╚═╝╚══════╝╚═════╝ ╚══════╝
+*/
+
+
+
+
+
+
+/*
+ █████╗ ██╗   ██╗ █████╗ ████████╗ █████╗ ██████╗ 
+██╔══██╗██║   ██║██╔══██╗╚══██╔══╝██╔══██╗██╔══██╗
+███████║██║   ██║███████║   ██║   ███████║██████╔╝
+██╔══██║╚██╗ ██╔╝██╔══██║   ██║   ██╔══██║██╔══██╗
+██║  ██║ ╚████╔╝ ██║  ██║   ██║   ██║  ██║██║  ██║
+╚═╝  ╚═╝  ╚═══╝  ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝
+*/
+foreignObject {
+	-webkit-mask: url('https://mithnir.github.io/BetterDiscord/Themes/Futuristic/images/octagon.svg');
+	-webkit-mask-size: cover;
+	
+}
+
+
+
+
+/*
+███╗   ███╗███████╗███╗   ███╗██████╗ ███████╗██████╗ ███████╗
+████╗ ████║██╔════╝████╗ ████║██╔══██╗██╔════╝██╔══██╗██╔════╝
+██╔████╔██║█████╗  ██╔████╔██║██████╔╝█████╗  ██████╔╝███████╗
+██║╚██╔╝██║██╔══╝  ██║╚██╔╝██║██╔══██╗██╔══╝  ██╔══██╗╚════██║
+██║ ╚═╝ ██║███████╗██║ ╚═╝ ██║██████╔╝███████╗██║  ██║███████║
+╚═╝     ╚═╝╚══════╝╚═╝     ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝╚══════╝
+*/
+
+
+
+
+
+
+
+/*
+ ██████╗██╗  ██╗ █████╗ ████████╗
+██╔════╝██║  ██║██╔══██╗╚══██╔══╝
+██║     ███████║███████║   ██║   
+██║     ██╔══██║██╔══██║   ██║   
+╚██████╗██║  ██║██║  ██║   ██║   
+ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   
+*/

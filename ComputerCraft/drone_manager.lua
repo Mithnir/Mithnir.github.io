@@ -94,7 +94,7 @@ end
 
 
 -- DEFAULT DIRECTION IS EXPECTED TO BE EAST
--- target: dict {"x":1, "y":2, "z":3}
+-- start/target: dict {"x":1, "y":2, "z":3}
 function navigate(start, target, elevation)
 
 	-- raise to elevation if specified

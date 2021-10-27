@@ -4,6 +4,43 @@ console.log(window.screen.width);
 console.log(window.devicePixelRatio);
 
 
+function derivative(f) {
+  let h = 0.001;
+  return function(x) { return (f(x + h) - f(x - h)) / (2 * h); };
+}
+
+
+var newtonPrevGuess = 0;
+
+
+// will be in loop lock if no 0 intersect
+// needs difference check
+function newtonsMethod(fn, guess) {
+  if (guess === null || guess === undefined) {
+    guess = 0;
+  }
+
+  let precision = 0.001;
+  console.log(guess);
+
+  if (Math.abs(newtonPrevGuess - guess) > precision) {
+    newtonPrevGuess = guess;
+    let approx = guess - (fn(guess) / derivative(fn)(guess));
+
+    return newtonsMethod(fn, approx);
+  } else {
+      return guess;
+  }
+}
+
+
+class CutGuide {
+  constructor(params) {
+    
+  }
+}
+
+
 class Bachi {
   constructor(preview_element, length, radius, curve_length, sharpness, curvature) {
     this.preview_element = preview_element;
@@ -40,25 +77,51 @@ class Bachi {
     return this.center_of_gravity;
   }
 
-  // get point on curve by t
-  getPoint(t) {
-    // 0:0.5 = flat
-    // 0.5:1 = curve
-    let dt = 2*t;
-    let l0 = this.length - this.curve_length;
-    if (t <= 0.5) {
-      return {x: dt*l0, y: 0}
-    } else {
-      let t0 = dt-1;
+  // get curve tangent intersect point
+  getSlopeThroughPoint(x, y) {
+
+    let f = function(t0) {
+      // let x0 = 3*t*(1-t)*(1-t)*this.curvature*this.curve_length+3*t*t*(1-t)*this.curve_length+t*t*t*this.curve_length;
+      // let y0 = (1-t)*(1-t)*(1-t)*this.radius + 3*t*(1-t)*(1-t)*this.radius+3*t*t*(1-5)*this.sharpness*this.radius;
+
       let t1 = t0*t0;
       let t2 = t1*t0;
+      
       let i0 = 1-t0;
       let i1 = i0*i0;
       let i2 = i1*i0;
-      let x0 = this.curve_length*(t2 + 3*(t1*i0 + t0*i1*this.curvature)) + l0;
-      let y0 = this.radius*(1 - i2 - 3*(t0*i1 + t1*i0*this.sharpness));
-      return {x: x0, y: y0}
+
+      let fx = function(x) { return this.curve_length*(t2 + 3*(t1*i0 + t0*i1*this.curvature)) + l0 };
+      let fy = function(x) { return this.radius*(1 - i2 - 3*(t0*i1 + t1*i0*this.sharpness)) };
+
+      let dfx = derivative(fx);
+      let dfy = derivative(fy);
+
+      let m1 = dfx(t0)/dfy(t0);
+      let m2 = (x-fx(t0))/(y-fy(t0));
+
+      return m1 - m2;
+
     }
+
+    let m0 = newtonsMethod(0);
+    // 0:0.5 = flat
+    // 0.5:1 = curve
+    // let dt = 2*t;
+    // let l0 = this.length - this.curve_length;
+    // if (t <= 0.5) {
+    //   return {x: dt*l0, y: 0}
+    // } else {
+    //   let t0 = dt-1;
+    //   let t1 = t0*t0;
+    //   let t2 = t1*t0;
+    //   let i0 = 1-t0;
+    //   let i1 = i0*i0;
+    //   let i2 = i1*i0;
+    //   let x0 = this.curve_length*(t2 + 3*(t1*i0 + t0*i1*this.curvature)) + l0;
+    //   let y0 = this.radius*(1 - i2 - 3*(t0*i1 + t1*i0*this.sharpness));
+    //   return {x: x0, y: y0}
+    // }
   }
 
   update() {
@@ -90,15 +153,15 @@ function updateBachi(el) {
 }
 
 
-function updatePoint(el) {
-  let v = parseFloat(el.value);
-  // console.log(v);
-  let p0 = b.getPoint(v);
-  // console.log(p0);
-  b.point.setAttribute('cx', p0.x);
-  b.point.setAttribute('cy', p0.y);
+// function updatePoint(el) {
+//   let v = parseFloat(el.value);
+//   // console.log(v);
+//   let p0 = b.getPoint(v);
+//   // console.log(p0);
+//   b.point.setAttribute('cx', p0.x);
+//   b.point.setAttribute('cy', p0.y);
   
-}
+// }
 
 
 window.onload = () => {

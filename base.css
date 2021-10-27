@@ -1,0 +1,37 @@
+:root {
+  --header-size: 4em;
+  --footer-size: 10em;
+  --base-color: #fff;
+}
+
+body {
+  background-color: var(--base-color);
+  padding: 0;
+  margin: 0;
+  /* border: 0; */
+}
+
+header {
+  background-color: var(--base-color);
+  border-bottom: 2px solid #ddd;
+  /* margin: 10px; */
+  /* border-color: #888; */
+  width: 100%;
+  height: var(--header-size);
+}
+
+#content {
+  min-height: calc(100vh - var(--header-size));
+  padding: 10px;
+}
+
+footer {
+  background: #222;
+  
+  width: 100%;
+  height: var(--footer-size);
+}
+
+#title {
+  font-size: 3em;
+}

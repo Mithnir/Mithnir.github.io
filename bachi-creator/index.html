@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/base.css">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="app.js"></script>
+
+  <title>Bachi Creator</title>
+</head>
+<body>
+
+  <header>
+    <span id="title">Bachi Creator</span>
+  </header>
+
+  <div id="content">
+    <div class="bachi">
+      <svg id="bachi-preview" viewbox="0 0 2 2">
+        <path id="bachi-preview-path"/>
+        <circle id="bachi-cog" cx="16.070562748477947" cy="1" r=".5" fill="#800"/>
+        <circle id="bachi-center" cx="18" cy="1" r=".5" fill="#008"/>
+      </svg>
+    </div>
+  
+    <div class="sliders param">
+      <label for="curvature">Curvature</label>
+      <input type="range" name="curvature" id="bachi-curvature" min="0" max="1" step="any" value="0.552284749831" oninput="updateBachi(this)">
+      <br>
+      <label for="sharpness">Sharpness</label>
+      <input type="range" name="sharpness" id="bachi-sharpness" min="0" max="1" step="any"  value="0.552284749831" oninput="updateBachi(this)">
+    </div>
+  
+    <div class="param">
+      <label for="length">Length</label>
+      <input type="number" name="length" id="bachi-length" min="0" step="any" value="36" oninput="updateBachi(this)">
+      <br>
+      <label for="Radius">Radius</label>
+      <input type="number" name="radius" id="bachi-radius" min="0" step="any" value="1" oninput="updateBachi(this)">
+      <br>
+      <label for="Radius">Curve Length</label>
+      <input type="number" name="curve_length" id="bachi-curve-length" value="18" oninput="updateBachi(this)">
+    </div>
+  </div>
+
+  <footer>
+
+  </footer>
+
+</body>
+</html>

@@ -10,6 +10,7 @@ class Bachi {
     this.preview_path = this.preview_element.querySelector("#bachi-preview-path");
     this.cog_dot = this.preview_element.querySelector("#bachi-cog");
     this.center = this.preview_element.querySelector('#bachi-center');
+    this.point = this.preview_element.querySelector('#bachi-point');
     
     this.change({
       length: length,
@@ -39,6 +40,27 @@ class Bachi {
     return this.center_of_gravity;
   }
 
+  // get point on curve by t
+  getPoint(t) {
+    // 0:0.5 = flat
+    // 0.5:1 = curve
+    let dt = 2*t;
+    let l0 = this.length - this.curve_length;
+    if (t <= 0.5) {
+      return {x: dt*l0, y: 0}
+    } else {
+      let t0 = dt-1;
+      let t1 = t0*t0;
+      let t2 = t1*t0;
+      let i0 = 1-t0;
+      let i1 = i0*i0;
+      let i2 = i1*i0;
+      let x0 = this.curve_length*(t2 + 3*(t1*i0 + t0*i1*this.curvature)) + l0;
+      let y0 = this.radius*(1 - i2 - 3*(t0*i1 + t1*i0*this.sharpness));
+      return {x: x0, y: y0}
+    }
+  }
+
   update() {
 
     let n0 = this.length - this.curve_length;
@@ -49,7 +71,7 @@ class Bachi {
     let template = `M0 0 L0 ${n3} L${n0} ${n3} C${n1} ${n3}, ${this.length} ${n2}, ${this.length} ${this.radius} S${n1} 0, ${n0} 0 Z`;
     // M0 0 L0 r Ln0 r C${1 + curve} 2, 2 ${1 + sharpness}, 2 1 S${1 + curve} 0, 1 0 Z
 
-    let aspect = `0 0 ${this.length} ${n3}`;
+    let aspect = `-.25 -.25 ${this.length+2} ${n3}`;
     this.preview_element.setAttribute('viewBox', aspect);
     this.preview_path.setAttribute('d', template);
     this.cog_dot.setAttribute('cy', this.radius);
@@ -65,6 +87,17 @@ function updateBachi(el) {
   b.change(l);
   b.getCoG();
   b.update();
+}
+
+
+function updatePoint(el) {
+  let v = parseFloat(el.value);
+  // console.log(v);
+  let p0 = b.getPoint(v);
+  // console.log(p0);
+  b.point.setAttribute('cx', p0.x);
+  b.point.setAttribute('cy', p0.y);
+  
 }
 
 

@@ -19,11 +19,17 @@
 
   <div id="content">
     <div class="bachi">
-      <svg id="bachi-preview" viewbox="0 0 2 2">
+      <svg id="bachi-preview" viewbox="-.5 -.5 2.5 2.5">
         <path id="bachi-preview-path"/>
         <circle id="bachi-cog" cx="16.070562748477947" cy="1" r=".5" fill="#800"/>
         <circle id="bachi-center" cx="18" cy="1" r=".5" fill="#008"/>
+        <circle id="bachi-point" cx="0" cy="0" r=".2" fill="#080"/>
       </svg>
+    </div>
+
+    <div class="sliders param">
+      <label for="point">Point</label>
+      <input type="range" name="point" id="bachi-point" min="0" max="1" step="any" value="0" oninput="updatePoint(this)">
     </div>
   
     <div class="sliders param">
